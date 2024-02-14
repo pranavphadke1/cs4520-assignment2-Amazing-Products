@@ -15,10 +15,10 @@ class ProductListFragment:Fragment(R.layout.product_list_view) {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.product_list_view, container, false)
-        val products = productsDataset.map { Product(it) }
+        val products = productsDataset.map{Product(it)}
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
+        recyclerView.adapter = ProductAdapter(products)
         recyclerView.layoutManager = LinearLayoutManager(context)
-//        recyclerView.adapter = products
         return view
     }
 }
